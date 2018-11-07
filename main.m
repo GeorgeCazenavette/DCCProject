@@ -1,7 +1,7 @@
 delete(gcp('nocreate'));
 
 numWorkers = 1:4;
-percentages = [.25 .5 .75];
+percentages = [.25 .5 .75 1];
 numVertices = 3:7;
 iterations = 30;
 
@@ -28,4 +28,4 @@ for w = numWorkers
     delete(pool);
 end
 
-save('data.mat', 'A');
+save('dataGeorge.mat', 'A');

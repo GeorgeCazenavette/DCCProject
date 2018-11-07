@@ -3,7 +3,8 @@ function t = TimeHamiltonianPerm(n, p, iterations, numWorkers)
     for i = 1:iterations
         G = rand(n,n) <= p;
         tic
-        ExecuteHamiltonianPerm(n, G, numWorkers);
+        %ExecuteHamiltonianPerm(n, G, numWorkers);
+        ExecuteHamiltonianPermParfor(n, G, numWorkers);
         time = toc;
         times = [times time];
     end

@@ -1,0 +1,16 @@
+percentages = [.25,.5,.75];
+vertices = [3:7];
+workers = [1:4];
+for i = 1:3
+    p = percentages(i);
+    figure;
+    hold on;
+    title(sprintf("%d%% of Edges Drawn", 100*p));
+    xlabel("Number of Vertices");
+    ylabel("Average Time 30 Runs");
+    for w = 1:4
+        plot(vertices, squeeze(A(i,w,:)))
+    end
+    legend(workers + " workers");
+    
+end

@@ -4,7 +4,8 @@ function t = TimeHamiltonianPerm(n, p, iterations, numWorkers)
         G = rand(n,n) <= p;
         tic
         %ExecuteHamiltonianPerm(n, G, numWorkers);
-        ExecuteHamiltonianPermParfor(n, G, numWorkers);
+        %ExecuteHamiltonianPermParfor(n, G, numWorkers);
+        ExecuteHamiltonianDFSParfor(n, G, numWorkers);
         time = toc;
         times = [times time];
     end

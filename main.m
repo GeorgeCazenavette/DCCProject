@@ -5,7 +5,8 @@ percentages = [.25 .5 .75 1];
 numVertices = 3:7;
 iterations = 30;
 
-A = [];
+PermData = [];
+DfsData = [];
 for w = numWorkers
     parpool(w);
     
@@ -15,15 +16,21 @@ for w = numWorkers
     %addAttachedFiles(pool, "ExecuteHamiltonianPerm.m")
     for p = percentages
         pI = pI + 1;
+%         times = [];
+%         for v = numVertices
+%             ["perm", p, v]
+%             t = TimeHamiltonianPerm(v, p, iterations, pool.NumWorkers);
+%             times = [times t];
+%         end
+%         PermData(pI, w, :) = times;
+        
         times = [];
         for v = numVertices
-
-            [p,v]
-            t = TimeHamiltonianPerm(v, p, iterations, pool.NumWorkers);
+            ["dfs", p, v]
+            t = TimeHamiltonianDFS(v, p, iterations, pool.NumWorkers);
             times = [times t];
         end
-        
-        A(pI, w, :) = times;
+        DfsData(pI, w, :) = times;      
     end
     delete(pool);
 end

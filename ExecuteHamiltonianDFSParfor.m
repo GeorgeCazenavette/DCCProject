@@ -12,6 +12,7 @@ end
 
 function BFS(cur_path, G, n)
     cur_node = cur_path(end);
+    pause(0.001);
     if cur_node == n && size(cur_path,2) == n
         %disp(cur_path)
     else

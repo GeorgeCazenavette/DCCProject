@@ -35,4 +35,4 @@ for w = numWorkers
     delete(pool);
 end
 
-save('dataGeorge.mat', 'A');
+% save('dataGeorge.mat', 'A');

@@ -26,7 +26,7 @@ for w = numWorkers
         
         times = [];
         for v = numVertices
-            ["dfs", p, v]
+            [p, v]
             t = TimeHamiltonianDFS(v, p, iterations, pool.NumWorkers);
             times = [times t];
         end

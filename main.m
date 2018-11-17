@@ -16,13 +16,13 @@ for w = numWorkers
     %addAttachedFiles(pool, "ExecuteHamiltonianPerm.m")
     for p = percentages
         pI = pI + 1;
-%         times = [];
-%         for v = numVertices
-%             ["perm", p, v]
-%             t = TimeHamiltonianPerm(v, p, iterations, pool.NumWorkers);
-%             times = [times t];
-%         end
-%         PermData(pI, w, :) = times;
+        times = [];
+        for v = numVertices
+            ["perm", p, v]
+            t = TimeHamiltonianPerm(v, p, iterations, pool.NumWorkers);
+            times = [times t];
+        end
+        PermData(pI, w, :) = times;
         
         times = [];
         for v = numVertices
@@ -35,4 +35,3 @@ for w = numWorkers
     delete(pool);
 end
 
-% save('dataGeorge.mat', 'A');
